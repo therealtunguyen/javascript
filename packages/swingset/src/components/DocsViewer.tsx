@@ -39,12 +39,7 @@ const docModules: Record<string, Record<string, React.ComponentType>> = {
   },
   blocks: {
     destructive: dynamic(() => import('../stories/destructive.mdx')),
-    'reverification-password': dynamic(() => import('../stories/reverification-password.mdx')),
-    'reverification-passkey': dynamic(() => import('../stories/reverification-passkey.mdx')),
-    'reverification-otp': dynamic(() => import('../stories/reverification-otp.mdx')),
-    'reverification-backup-code': dynamic(() => import('../stories/reverification-backup-code.mdx')),
-    'reverification-method-picker': dynamic(() => import('../stories/reverification-method-picker.mdx')),
-    'reverification-help': dynamic(() => import('../stories/reverification-help.mdx')),
+    reverification: dynamic(() => import('../stories/reverification.mdx')),
   },
   components: {
     avatar: dynamic(() => import('../stories/avatar.mdx')),
@@ -65,6 +60,7 @@ const docModules: Record<string, Record<string, React.ComponentType>> = {
     section: dynamic(() => import('../stories/section.mdx')),
     text: dynamic(() => import('../stories/text.mdx')),
     field: dynamic(() => import('../stories/field.component.mdx')),
+    flow: dynamic(() => import('../stories/flow.component.mdx')),
   },
   primitives: {
     // Headless primitives — alphabetical.
