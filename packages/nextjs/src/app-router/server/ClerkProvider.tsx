@@ -38,7 +38,8 @@ export async function ClerkProvider<TUi extends Ui = Ui>(
   // the nonce fetching (which calls headers()) from the rest of the page.
   // This allows the page to remain statically renderable / use PPR.
   const scriptsSlot = dynamic ? (
-    <Suspense>
+    // Keyed: unkeyed, RSC-outlined siblings trip React's dev key-validation warning (fixes #9415).
+    <Suspense key="clerk-scripts">
       <DynamicClerkScripts
         publishableKey={propsWithEnvs.publishableKey}
         __internal_clerkJSUrl={propsWithEnvs.__internal_clerkJSUrl}

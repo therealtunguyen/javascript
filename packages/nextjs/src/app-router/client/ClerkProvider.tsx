@@ -79,9 +79,10 @@ const NextClientClerkProvider = <TUi extends Ui = Ui>(props: NextClerkProviderPr
   return (
     <ClerkNextOptionsProvider options={mergedProps}>
       <ReactClerkProvider {...mergedProps}>
-        <RouterTelemetry />
-        {__internal_scriptsSlot ?? <ClerkScripts />}
-        {children}
+        {/* Keyed: unkeyed, RSC-outlined siblings trip React's dev key-validation warning (fixes #9415). */}
+        <RouterTelemetry key="clerk-router-telemetry" />
+        {__internal_scriptsSlot ?? <ClerkScripts key="clerk-scripts-fallback" />}
+        <React.Fragment key="clerk-children">{children}</React.Fragment>
       </ReactClerkProvider>
     </ClerkNextOptionsProvider>
   );
